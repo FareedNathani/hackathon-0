@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  web:
+    image: odoo:17.0
+    container_name: odoo_platinum
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=platinum_secret_db_pass
+    restart: always
+
+  db:
+    image: postgres:15
+    container_name: postgres_platinum
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=platinum_secret_db_pass
+      - POSTGRES_USER=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:

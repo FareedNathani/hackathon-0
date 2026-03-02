@@ -1,0 +1,1 @@
+Generate and email the weekly sales report to management.

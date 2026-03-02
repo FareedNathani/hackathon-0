@@ -1,0 +1,30 @@
+# Secrets
+.env
+.env.cloud
+.env.local
+*.key
+*.pem
+id_rsa
+
+# Vault internal state
+.obsidian/
+.trash/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+
+# Node
+node_modules/
+npm-debug.log
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs (Sync logs via specific logic, ignore raw streams)
+*.log
+Platinum_AI/Vault/Logs/*.json
+!Platinum_AI/Vault/Logs/.keep
